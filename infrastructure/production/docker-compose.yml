@@ -34,11 +34,14 @@ services:
             PGPORT: 5432
         volumes:
             - ./volumes/wifimapper:/var/www/html
-    
+
     mosquitto:
         image: eclipse-mosquitto
+        network_mode: host
         volumes:
-          - ./:/mosquitto/:rw
+          - ./conf:/mosquitto/conf
+          - ./data:/mosquitto/data
+          - ./log:/mosquitto/log
         ports:
           - 1883:1883
           - 9001:9001
