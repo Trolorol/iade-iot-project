@@ -1,3 +1,5 @@
+infrastructure/production/volumes/*
+
 # Logs
 logs
 *.log
