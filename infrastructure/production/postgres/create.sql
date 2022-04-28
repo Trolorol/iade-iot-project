@@ -1,9 +1,3 @@
--- Enable PostGIS (includes raster)
-CREATE EXTENSION postgis;
-
--- Enable Topology
-CREATE EXTENSION postgis_topology;
-
 create table if not exists users (
 	id serial primary key,
 	email varchar NOT NULL,
@@ -20,7 +14,7 @@ create table if not exists devices (
 );
 
 create table if not exists device_groups (
---SQL table with id and reference to devices and user id
+	--SQL table with id and reference to devices and user id
 	id serial primary key,
 	user_id int,
 	device_id int,
@@ -49,4 +43,3 @@ create table if not exists devices_triggers (
 	foreign key(device_id) references devices(id),
 	foreign key(trigger_id) references triggers(id)
 );
-
